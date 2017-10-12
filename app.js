@@ -138,7 +138,7 @@ app.post('/:platform/:leagueId/team/:teamId/gameplan', (req, res) => {
   const db = admin.database();
   const ref = db.ref();
   const {platform, leagueId, teamId} = req.params;
-  const dataRef = ref.child(`data/${platform}/${leagueId}/team/${teamId}`);
+  const dataRef = ref.child(`data/${platform}/${leagueId}/team/${teamId}/gameplan`);
   const {body: {gameplanInfoList}} = req;
   res.sendStatus(202);
   dataRef.set({
