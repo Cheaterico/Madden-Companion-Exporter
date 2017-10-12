@@ -134,5 +134,17 @@ app.post('/:platform/:leagueId/team/:teamId/roster', (req, res) => {
   });
 });
 
+app.post('/:platform/:leagueId/team/:teamId/gameplan', (req, res) => {
+  const db = admin.database();
+  const ref = db.ref();
+  const {platform, leagueId, teamId} = req.params;
+  const dataRef = ref.child(`data/${platform}/${leagueId}/team/${teamId}`);
+  const {body: {gameplanInfoList}} = req;
+  res.sendStatus(202);
+  dataRef.set({
+    gameplanInfoList
+  });
+});
+
 
 app.listen(app.get('port'), function() { console.log('Madden Companion Exporter is running on port', app.get('port')) });
