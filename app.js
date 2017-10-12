@@ -134,4 +134,18 @@ app.post('/:platform/:leagueId/team/:teamId/roster', (req, res) => {
   });
 });
 
+//AGGIUNTA CHEATER
+app.post('/:platform/:leagueId', (req, res) => {
+  const db = admin.database();
+  const ref = db.ref();
+  const {platform, leagueId} = req.params;
+  const dataRef = ref.child(`data/${platform}/${leagueId}`);
+  const {body: {rosterInfoList}} = req;
+  res.sendStatus(202);
+  dataRef.set({
+    rosterInfoList
+  });
+});
+//FINE AGGIUNTA CHEATER
+
 app.listen(app.get('port'), function() { console.log('Madden Companion Exporter is running on port', app.get('port')) });
