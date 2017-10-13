@@ -52,7 +52,7 @@ app.post('/:platform/:leagueId', (req, res) => {
   res.sendStatus(203);
 });
 //FINE
-
+/*
 app.post('/:platform/:leagueId/leagueteams', (req, res) => {
   const db = admin.database();
   const ref = db.ref();
@@ -147,7 +147,7 @@ app.post('/:platform/:leagueId/team/:teamId/roster', (req, res) => {
   dataRef.set({
     rosterInfoList
   });
-});
+});*/
 
 
 app.listen(app.get('port'), function() { console.log('Madden Companion Exporter is running on port', app.get('port')) });
