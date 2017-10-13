@@ -37,7 +37,7 @@ app.get('/delete', function(req, res) {
   dataRef.remove();
   return res.send('Madden Data Cleared')
 });
-
+/*
 app.post('/:platform/:leagueId/leagueteams', (req, res) => {
   const db = admin.database();
   const ref = db.ref();
@@ -132,7 +132,7 @@ app.post('/:platform/:leagueId/team/:teamId/roster', (req, res) => {
   dataRef.set({
     rosterInfoList
   });
-});
+});*/
 
 
 app.listen(app.get('port'), function() { console.log('Madden Companion Exporter is running on port', app.get('port')) });
