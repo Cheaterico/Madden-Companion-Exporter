@@ -37,6 +37,21 @@ app.get('/delete', function(req, res) {
   dataRef.remove();
   return res.send('Madden Data Cleared')
 });
+
+app.post('/:platform/:leagueId', (req, res) => {
+  const db = admin.database();
+  const ref = db.ref();
+  const {platform, leagueId} = req.params;
+  const dataRef = ref.child(`data/${platform}/${leagueId}`);
+  const {body: {leagueInfoList}} = req;
+
+  dataRef.set({
+    leagueInfoList
+  });
+  res.sendStatus(200);
+});
+
+
 /*
 app.post('/:platform/:leagueId/leagueteams', (req, res) => {
   const db = admin.database();
