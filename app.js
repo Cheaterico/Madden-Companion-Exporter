@@ -38,7 +38,7 @@ app.get('/delete', function(req, res) {
   return res.send('Madden Data Cleared')
 });
 
-app.get('/tojason', function(req, res) {
+app.get('/tojason/:platform/:leagueId', function(req, res) {
   const db = admin.database();
   const ref = db.ref();
   const dataRef = ref.child(`data/${platform}/${leagueId}`);
