@@ -41,7 +41,7 @@ app.get('/delete', function(req, res) {
 app.get('/tojason', function(req, res) {
   const db = admin.database();
   const dataRef = ref.child(`data/${platform}/${leagueId}`);
-  res.write(JSON.stringify(dataRef));
+  res.write(JSON.stringify(db));
   //res.send(Object.keys(dataRef));
 });
 
