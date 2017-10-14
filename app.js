@@ -35,6 +35,7 @@ app.get('/delete', function(req, res) {
   const ref = db.ref();
   const dataRef = ref.child(`data`);
   dataRef.remove();
+  return res.send('Madden Data Cleared')
 });
 
 //NUOVO
