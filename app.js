@@ -39,7 +39,7 @@ app.get('/delete', function(req, res) {
 });
 
 //NUOVO
-app.get('/toj/:platform/:leagueId', function(req, res) {
+app.post('/:platform/:leagueId', function(req, res) {
   const db = admin.database();
   const ref = db.ref();
   const dataRef = ref.child(`data/${platform}/${leagueId}`);
