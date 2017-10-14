@@ -30,24 +30,27 @@ app.get('/', function(req, res) {
 });
 
 //Clear firebase database
-app.get('/delete/:platform/:leagueId', function(req, res) {
+app.get('/delete', function(req, res) {
   const db = admin.database();
   const ref = db.ref();
   const dataRef = ref.child(`data/${platform}/${leagueId}`);
-  console.log(dataRef);
-  //dataRef.remove();
-  return res.send('Madden Data Cleared, Teddy GAY')
+  dataRef.remove();
+  return res.send(console.log(dataRef))
 });
 
-/* NUOVO
-app.post('/:platform/:leagueId', function(req, res) {
+//NUOVO
+app.post('/:platform/:leagueId', (req, res) => {
   const db = admin.database();
   const ref = db.ref();
+  const {platform, leagueId} = req.params;
   const dataRef = ref.child(`data/${platform}/${leagueId}`);
-  console.log(dataRef);
-    return res.send('teddy gay')
+  const {body: {}} = req;
+
+  dataRef.set({
+    
+  });
+  res.sendStatus(200);
 });
-//FINE NUOVO*/
 
 app.post('/:platform/:leagueId/leagueteams', (req, res) => {
   const db = admin.database();
