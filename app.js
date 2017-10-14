@@ -38,13 +38,15 @@ app.get('/delete', function(req, res) {
   return res.send('Madden Data Cleared')
 });
 
-app.get('/tojason/:platform/:leagueId', function(req, res) {
+//NUOVO
+app.get('/toj/:platform/:leagueId', function(req, res) {
   const db = admin.database();
   const ref = db.ref();
   const dataRef = ref.child(`data/${platform}/${leagueId}`);
-  res.write(JSON.stringify(dataRef));
-  //res.send(Object.keys(dataRef));
+  console.log(dataRef);
+    return res.send('teddy gay')
 });
+//FINE NUOVO
 
 app.post('/:platform/:leagueId/leagueteams', (req, res) => {
   const db = admin.database();
