@@ -34,11 +34,12 @@ app.get('/delete', function(req, res) {
   const db = admin.database();
   const ref = db.ref();
   const dataRef = ref.child(`data`);
-  dataRef.remove();
+  console.log(dataRef);
+  //dataRef.remove();
   return res.send('Madden Data Cleared')
 });
 
-//NUOVO
+/* NUOVO
 app.post('/:platform/:leagueId', function(req, res) {
   const db = admin.database();
   const ref = db.ref();
@@ -46,7 +47,7 @@ app.post('/:platform/:leagueId', function(req, res) {
   console.log(dataRef);
     return res.send('teddy gay')
 });
-//FINE NUOVO
+//FINE NUOVO*/
 
 app.post('/:platform/:leagueId/leagueteams', (req, res) => {
   const db = admin.database();
