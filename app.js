@@ -40,9 +40,9 @@ app.get('/delete', function(req, res) {
 
 app.get('/tojason', function(req, res) {
   const db = admin.database();
-  alert(Object.keys(db));
-  
-  return res.send(JSON.stringify(db))
+  const dataRef = ref.child(`data/${platform}/${leagueId}`);
+  res.write(JSON.stringify(dataRef));
+  //res.send(Object.keys(dataRef));
 });
 
 app.post('/:platform/:leagueId/leagueteams', (req, res) => {
