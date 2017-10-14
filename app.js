@@ -33,9 +33,8 @@ app.get('/', function(req, res) {
 app.get('/delete', function(req, res) {
   const db = admin.database();
   const ref = db.ref();
-  const dataRef = ref.child(`data/${platform}/${leagueId}`);
+  const dataRef = ref.child(`data`);
   dataRef.remove();
-  return res.send(console.log(dataRef))
 });
 
 //NUOVO
@@ -44,14 +43,10 @@ app.post('/:platform/:leagueId', (req, res) => {
   const ref = db.ref();
   const {platform, leagueId} = req.params;
   const dataRef = ref.child(`data/${platform}/${leagueId}`);
-  const {body: {}} = req;
-
-  dataRef.set({
-    
-  });
+  dataRef.set();
   res.sendStatus(200);
 });
-
+/*
 app.post('/:platform/:leagueId/leagueteams', (req, res) => {
   const db = admin.database();
   const ref = db.ref();
@@ -146,7 +141,7 @@ app.post('/:platform/:leagueId/team/:teamId/roster', (req, res) => {
   dataRef.set({
     rosterInfoList
   });
-});
+});*/
 
 
 app.listen(app.get('port'), function() { console.log('Madden Companion Exporter is running on port', app.get('port')) });
