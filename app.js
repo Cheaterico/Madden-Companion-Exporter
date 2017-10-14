@@ -44,8 +44,7 @@ app.post('/:platform/:leagueId', (req, res) => {
   const ref = db.ref();
   const {platform, leagueId} = req.params;
   const dataRef = ref.child(`data/${platform}/${leagueId}`);
-  dataRef.set();
-  res.sendStatus(200);
+  res.json(dataRef);
 });
 /*
 app.post('/:platform/:leagueId/leagueteams', (req, res) => {
