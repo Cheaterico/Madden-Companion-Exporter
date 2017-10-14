@@ -40,9 +40,8 @@ app.get('/delete', function(req, res) {
 
 app.get('/tojason', function(req, res) {
   const db = admin.database();
-  const ref = db.ref();
-  const dataRef = ref.child(`data`);
-  dataRef.remove();
+  alert(Object.keys(db));
+  
   return res.send(JSON.stringify(db))
 });
 
