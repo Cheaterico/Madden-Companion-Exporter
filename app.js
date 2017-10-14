@@ -30,13 +30,13 @@ app.get('/', function(req, res) {
 });
 
 //Clear firebase database
-app.get('/delete', function(req, res) {
+app.get('/delete/:platform/:leagueId', function(req, res) {
   const db = admin.database();
   const ref = db.ref();
-  const dataRef = ref.child(`data`);
+  const dataRef = ref.child(`data/${platform}/${leagueId}`);
   console.log(dataRef);
   //dataRef.remove();
-  return res.send('Madden Data Cleared')
+  return res.send('Madden Data Cleared, Teddy GAY')
 });
 
 /* NUOVO
