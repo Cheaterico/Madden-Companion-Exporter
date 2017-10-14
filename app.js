@@ -38,8 +38,12 @@ app.get('/delete', function(req, res) {
   return res.send('Madden Data Cleared')
 });
 
-var arrayFound = obj.items.filter(function() { 
-    return this.isRight == 1; 
+app.get('/tojason', function(req, res) {
+  const db = admin.database();
+  const ref = db.ref();
+  const dataRef = ref.child(`data`);
+  dataRef.remove();
+  return res.send(JSON.stringify(db))
 });
 
 app.post('/:platform/:leagueId/leagueteams', (req, res) => {
