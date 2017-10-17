@@ -38,6 +38,16 @@ app.get('/delete', function(req, res) {
   return res.send('Madden Data Cleared')
 });
 
+/*/Clear firebase database
+app.get('/del', function(req, res) {
+  const db = admin.database();
+  const ref = db.ref();
+  const dataRef = ref.child(`data`);
+  console.log('/del', ref);
+  //dataRef.remove();
+  return res.send('Madden Data Cleared')
+});
+
 //NUOVO
 app.post('/:platform/:leagueId', (req, res) => {
   const db = admin.database();
@@ -46,7 +56,7 @@ app.post('/:platform/:leagueId', (req, res) => {
   const dataRef = ref.child(`data/${platform}/${leagueId}`);
   res.json(dataRef);
 });
-/*
+*/
 app.post('/:platform/:leagueId/leagueteams', (req, res) => {
   const db = admin.database();
   const ref = db.ref();
@@ -141,7 +151,7 @@ app.post('/:platform/:leagueId/team/:teamId/roster', (req, res) => {
   dataRef.set({
     rosterInfoList
   });
-});*/
+});
 
 
 app.listen(app.get('port'), function() { console.log('Madden Companion Exporter is running on port', app.get('port')) });
